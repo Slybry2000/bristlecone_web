@@ -1,0 +1,271 @@
+<!doctype html>
+<!--
+  Bristlecone — A4 Brand Book (single page, print-ready)
+  Render to PDF with: msedge.exe --headless --disable-gpu --no-pdf-header-footer
+                       --print-to-pdf=brand-book-a4.pdf  file:///.../brand-book-a4.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Bristlecone — Brand Book</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #2B2B2B;
+    --amber:      #C8893D;
+    --forest:     #2F4A3A;
+    --sky:        #6B8FA8;
+    --parchment:  #F2EDE3;
+    --bone:       #FAF6EC;
+    --border:     #D9CFB8;
+    --muted:      #6B645A;
+    --display: 'EB Garamond', 'Garamond', serif;
+    --body:    'Lora', Georgia, serif;
+    --mono:    'IBM Plex Mono', monospace;
+  }
+
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; background: var(--parchment); }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .page {
+    width: 210mm; height: 297mm;
+    background: var(--parchment); color: var(--ink);
+    font-family: var(--body);
+    padding: 14mm 14mm 11mm;
+    display: flex; flex-direction: column; gap: 5.5mm;
+    position: relative; overflow: hidden;
+  }
+
+  /* subtle paper grain — radial noise via stacked tiny radial gradients */
+  .page::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(43,43,43,0.025) 0 1px, transparent 2px),
+      radial-gradient(circle at 73% 41%, rgba(43,43,43,0.02) 0 1px, transparent 2px),
+      radial-gradient(circle at 41% 81%, rgba(200,137,61,0.025) 0 1px, transparent 2px),
+      radial-gradient(circle at 88% 12%, rgba(43,43,43,0.022) 0 1px, transparent 2px);
+    background-size: 8mm 8mm, 11mm 11mm, 9mm 9mm, 13mm 13mm;
+    mix-blend-mode: multiply;
+  }
+
+  /* HEAD — full lockup left, meta right */
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 10mm; }
+  .head .lockup-img { height: 22mm; width: auto; display: block; }
+  .meta { text-align: right; font-family: var(--mono); font-size: 8.5px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.5; }
+  .meta .tag { color: var(--amber); display: block; margin-top: 2px; font-size: 9px; letter-spacing: 1.4px; }
+
+  .section-label {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+    color: var(--amber); text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* TAGLINE BANNER */
+  .banner {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5mm 0;
+    text-align: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.3;
+    position: relative;
+  }
+  .banner::before, .banner::after {
+    content: "◆";
+    color: var(--amber);
+    font-size: 9px;
+    margin: 0 8px;
+    vertical-align: middle;
+  }
+
+  /* COLOR HIERARCHY */
+  .colors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .swatch { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; background: var(--bone); }
+  .swatch .fill { height: 18mm; }
+  .swatch .meta-row { padding: 6px 8px; }
+  .swatch .tier { font-family: var(--display); font-weight: 600; font-size: 12px; display: block; }
+  .swatch .hex { font-family: var(--mono); font-size: 9px; color: var(--muted); display: block; margin-top: 1px; }
+  .swatch .use { font-size: 9px; color: var(--muted); line-height: 1.35; margin-top: 3px; display: block; font-family: var(--body); }
+
+  /* TWO-COLUMN: type + principles */
+  .twocol { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5mm; }
+  .card {
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 5mm; background: var(--bone);
+  }
+  .type-display {
+    font-family: var(--display); font-weight: 600;
+    font-size: 26px; letter-spacing: -0.01em;
+    color: var(--ink); line-height: 1; margin: 0;
+  }
+  .type-display .amb { color: var(--amber); }
+  .type-body {
+    font-family: var(--body);
+    font-size: 9.5px; color: var(--muted); line-height: 1.5; margin: 3mm 0 0;
+  }
+  .type-mono {
+    font-family: var(--mono); font-size: 8px; color: var(--muted);
+    letter-spacing: 1.2px; text-transform: uppercase; margin-top: 3mm; display: block;
+  }
+
+  .principles ol { margin: 0; padding: 0 0 0 4mm; font-size: 9.5px; color: var(--ink); line-height: 1.55; font-family: var(--body); }
+  .principles ol li::marker { color: var(--amber); font-family: var(--display); font-weight: 600; }
+  .principles ol li { margin-bottom: 2mm; }
+  .principles strong { font-family: var(--display); font-weight: 600; color: var(--ink); }
+
+  /* LEXICON — vocabulary tiles */
+  .lexicon { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .lex {
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 3mm; background: var(--bone);
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .lex .term { font-family: var(--display); font-weight: 600; font-size: 12px; color: var(--ink); }
+  .lex .def  { font-size: 8px; color: var(--muted); line-height: 1.4; }
+
+  /* WORDMARKS */
+  .wordmarks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .wm {
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 4mm; background: var(--bone);
+    display: flex; flex-direction: column; gap: 4px;
+    min-height: 28mm; justify-content: space-between;
+  }
+  .wm .lockup-img { width: 100%; height: auto; max-height: 14mm; object-fit: contain; display: block; }
+  .wm.dark { background: #14110D; border-color: #2A2520; }
+  .wm .note { font-size: 8.5px; color: var(--muted); line-height: 1.4; font-family: var(--body); }
+  .wm .role { font-family: var(--mono); font-size: 7.5px; color: var(--amber); letter-spacing: 1.2px; text-transform: uppercase; }
+
+  /* FOOTER */
+  .foot {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: auto; padding-top: 3mm; border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 7.5px; color: var(--muted);
+    letter-spacing: 1.2px; text-transform: uppercase;
+  }
+  .foot .right { text-align: right; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEAD -->
+  <div class="head">
+    <img class="lockup-img" src="brand/bristlecone_nobkgrd.png" alt="Bristlecone — The Goal Execution OS. Turn intent into accountable execution." />
+    <div class="meta">
+      v1 · 2026-04-28<br/>
+      <span class="tag">Step slowly. Compound for decades.</span>
+    </div>
+  </div>
+
+  <!-- TAGLINE BANNER -->
+  <div class="banner">
+    Turn intent into accountable execution.
+  </div>
+
+  <!-- COLOR HIERARCHY -->
+  <div>
+    <div class="section-label">Color Hierarchy</div>
+    <div class="colors">
+      <div class="swatch">
+        <div class="fill" style="background:#2B2B2B"></div>
+        <div class="meta-row">
+          <span class="tier" style="color:#2B2B2B">Charcoal Ink</span>
+          <span class="hex">#2B2B2B</span>
+          <span class="use">Primary linework, body type, the durable substrate.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#C8893D"></div>
+        <div class="meta-row">
+          <span class="tier" style="color:#C8893D">Living Amber</span>
+          <span class="hex">#C8893D</span>
+          <span class="use">The single living branch. Used sparingly: accents, key moments, the &ldquo;i.&rdquo;</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#F2EDE3; border-bottom: 1px solid #D9CFB8"></div>
+        <div class="meta-row">
+          <span class="tier" style="color:#6B645A">Parchment</span>
+          <span class="hex">#F2EDE3</span>
+          <span class="use">Surface. Warm, paper-like, never pure white.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY + PRINCIPLES -->
+  <div class="twocol">
+    <div>
+      <div class="section-label">Typography</div>
+      <div class="card">
+        <p class="type-display">Step slowly.<br/><span class="amb">Compound for decades.</span></p>
+        <p class="type-body">Display: <strong>EB Garamond</strong>, an old-style serif with letterpress character. Body: <strong>Lora</strong>, a refined humanist serif. No tech-startup sans, no display gimmicks &mdash; the brand reads as something built with care.</p>
+        <span class="type-mono">IBM Plex Mono · Labels · Codes · Metadata</span>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Principles</div>
+      <div class="card principles">
+        <ol>
+          <li><strong>Prove readiness, not certainty.</strong> Surface what you know and what you don&rsquo;t.</li>
+          <li><strong>Operator-in-the-loop.</strong> Humans hold every meaningful decision.</li>
+          <li><strong>Honest escalation.</strong> Gaps in capability or access are surfaced, not hidden.</li>
+          <li><strong>Slow growth, compound returns.</strong> Patience is a feature, not a limitation.</li>
+          <li><strong>Domain-neutral architecture.</strong> The substrate is the same whether the work is marketing, ops, or strategy.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND LEXICON -->
+  <div>
+    <div class="section-label">Brand Lexicon</div>
+    <div class="lexicon">
+      <div class="lex"><span class="term">Rings</span><span class="def">Year-over-year history view in the operator console.</span></div>
+      <div class="lex"><span class="term">Roots</span><span class="def">Context packs &mdash; offer, proof, brand, constraints.</span></div>
+      <div class="lex"><span class="term">Soil</span><span class="def">Channel and audience environment.</span></div>
+      <div class="lex"><span class="term">Season</span><span class="def">A campaign cycle &mdash; plant, tend, harvest.</span></div>
+      <div class="lex"><span class="term">Cone</span><span class="def">A campaign output. The seed of the next cycle.</span></div>
+      <div class="lex"><span class="term">Grove</span><span class="def">The portfolio &mdash; many trees, one ecosystem.</span></div>
+      <div class="lex"><span class="term">Heartwood</span><span class="def">Governance substrate. Review gates and honest-resolution guards.</span></div>
+      <div class="lex"><span class="term">Methuselah</span><span class="def">Opt-in 3&ndash;5 year planning view. The flagship long-horizon mode.</span></div>
+    </div>
+  </div>
+
+  <!-- WORDMARKS / LOCKUPS -->
+  <div>
+    <div class="section-label">Wordmarks · Lockups</div>
+    <div class="wordmarks">
+      <div class="wm">
+        <img class="lockup-img" src="brand/bristlecone_nobkgrd.png" alt="Bristlecone primary lockup" />
+        <p class="note">The primary lockup. Tree + serif wordmark with tagline and amber divider.</p>
+        <span class="role">Mark + wordmark · Default</span>
+      </div>
+
+      <div class="wm">
+        <img class="lockup-img" src="brand/Bristlecone_alt.png" alt="Bristlecone rings variant" />
+        <p class="note">In-product variant. Rings cross-section replaces the tree for the console.</p>
+        <span class="role">Console · App icon</span>
+      </div>
+
+      <div class="wm dark">
+        <img class="lockup-img" src="brand/Bristlecone_Dark.png" alt="Bristlecone dark-mode lockup" />
+        <p class="note" style="color:#9A9088">Dark-mode variant. Bone ink on warm near-black, brightened amber.</p>
+        <span class="role" style="color:#D9A04A">Dark mode · Inverse</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <span>Bristlecone Brand Book · v1</span>
+    <span class="right">design/brand-book-a4.pdf</span>
+  </div>
+
+</div>
+</body>
+</html>

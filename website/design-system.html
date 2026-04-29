@@ -1,0 +1,622 @@
+<!doctype html>
+<!--
+  Bristlecone — Design System Reference Page
+  Scrollable. Self-contained. Open in any browser.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Bristlecone — Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #2B2B2B;
+    --ink-soft:   #4A4540;
+    --amber:      #C8893D;
+    --amber-dim:  #9E6C2F;
+    --forest:     #2F4A3A;
+    --sky:        #6B8FA8;
+    --parchment:  #F2EDE3;
+    --bone:       #FAF6EC;
+    --border:     #D9CFB8;
+    --border-soft:#E8DEC8;
+    --muted:      #6B645A;
+    --dark-bg:    #14110D;
+    --dark-fg:    #EDE6D6;
+    --display: 'EB Garamond', 'Garamond', serif;
+    --body:    'Lora', Georgia, serif;
+    --mono:    'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+
+  /* paper grain */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(43,43,43,0.022) 0 1px, transparent 2px),
+      radial-gradient(circle at 73% 41%, rgba(43,43,43,0.018) 0 1px, transparent 2px),
+      radial-gradient(circle at 41% 81%, rgba(200,137,61,0.022) 0 1px, transparent 2px),
+      radial-gradient(circle at 88% 12%, rgba(43,43,43,0.020) 0 1px, transparent 2px);
+    background-size: 8mm 8mm, 11mm 11mm, 9mm 9mm, 13mm 13mm;
+    mix-blend-mode: multiply;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 64px 40px 96px; position: relative; z-index: 1; }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 40px;
+    margin-bottom: 56px;
+  }
+  .lockup { display: block; }
+  .lockup .lockup-img { max-width: 480px; width: 100%; height: auto; display: block; }
+  .header .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 28px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .header .meta .tag { color: var(--amber); font-size: 12px; letter-spacing: 1.2px; }
+  .header .tagline {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--ink-soft);
+    margin: 24px 0 0;
+    line-height: 1.35;
+  }
+  .header .tagline .amb { color: var(--amber); font-style: normal; }
+
+  /* SECTION */
+  section { margin-bottom: 72px; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .section-intro {
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 0 28px;
+    font-size: 15px;
+  }
+
+  /* COLOR SECTION */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bone);
+  }
+  .swatch .fill { height: 120px; position: relative; }
+  .swatch .fill .label {
+    position: absolute; bottom: 10px; left: 12px;
+    font-family: var(--mono); font-size: 10px;
+    color: rgba(255,255,255,0.85); letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .swatch.light .fill .label { color: rgba(43,43,43,0.6); }
+  .swatch .body-row { padding: 14px 16px; }
+  .swatch .tier {
+    font-family: var(--display); font-weight: 600;
+    font-size: 18px; line-height: 1.2; display: block;
+  }
+  .swatch .hex {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); display: block; margin-top: 3px;
+  }
+  .swatch .use {
+    font-size: 13px; color: var(--ink-soft);
+    line-height: 1.45; margin-top: 8px; display: block;
+  }
+
+  .extended { margin-top: 24px; }
+  .extended .row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .ext {
+    border: 1px solid var(--border-soft);
+    border-radius: 4px;
+    padding: 12px 14px;
+    background: var(--bone);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .ext .chip { width: 28px; height: 28px; border-radius: 4px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.06); }
+  .ext .info .name { font-family: var(--display); font-weight: 600; font-size: 14px; line-height: 1.1; }
+  .ext .info .hex { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* TYPOGRAPHY */
+  .type-block { background: var(--bone); border: 1px solid var(--border); border-radius: 6px; padding: 32px; }
+  .type-display {
+    font-family: var(--display); font-weight: 600;
+    font-size: 64px; letter-spacing: -0.018em;
+    line-height: 0.98; margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .type-display .amb { color: var(--amber); }
+  .type-display.italic { font-style: italic; font-weight: 500; font-size: 48px; margin-top: 24px; }
+  .type-meta {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--muted); margin-top: 12px;
+  }
+  .type-body-sample {
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 28px 0 8px;
+    max-width: 640px;
+  }
+  .type-mono-sample {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: rgba(43,43,43,0.04);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-top: 16px;
+    display: inline-block;
+  }
+
+  .weight-ladder { margin-top: 32px; display: grid; gap: 6px; }
+  .weight-ladder .row {
+    display: grid; grid-template-columns: 80px 1fr; align-items: baseline;
+    border-top: 1px dashed var(--border);
+    padding: 10px 0;
+  }
+  .weight-ladder .row:first-child { border-top: none; }
+  .weight-ladder .w {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+  }
+  .weight-ladder .sample { font-family: var(--display); font-size: 22px; color: var(--ink); }
+
+  /* PRINCIPLES */
+  .principles { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .principle {
+    border-left: 3px solid var(--amber);
+    padding: 16px 24px;
+    background: var(--bone);
+    border-radius: 0 4px 4px 0;
+    border-top: 1px solid var(--border-soft);
+    border-right: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .principle .num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--amber); letter-spacing: 1.5px;
+    display: block; margin-bottom: 4px;
+  }
+  .principle h3 {
+    font-family: var(--display); font-weight: 600;
+    font-size: 22px; margin: 0 0 6px;
+    color: var(--ink); letter-spacing: -0.005em;
+  }
+  .principle p {
+    margin: 0; color: var(--ink-soft);
+    font-size: 15px; line-height: 1.55;
+  }
+
+  /* COMPONENTS */
+  .components { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .component {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    background: var(--bone);
+  }
+  .component .label {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+  }
+
+  /* Buttons */
+  .btn {
+    font-family: var(--display); font-weight: 600;
+    font-size: 16px; letter-spacing: 0.005em;
+    padding: 12px 24px; border-radius: 4px;
+    border: 1px solid transparent; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: none; /* old-craft doesn't animate */
+  }
+  .btn-primary { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+  .btn-primary:hover { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--bone); }
+  .btn-amber { background: var(--amber); color: var(--ink); border-color: var(--amber); }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  /* Cards */
+  .demo-card {
+    background: var(--parchment); border: 1px solid var(--border);
+    border-radius: 4px; padding: 18px;
+  }
+  .demo-card .kicker {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 6px;
+  }
+  .demo-card h4 { font-family: var(--display); font-weight: 600; font-size: 20px; margin: 0 0 6px; }
+  .demo-card p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* Badges */
+  .badge {
+    display: inline-block; font-family: var(--mono);
+    font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 3px;
+    border: 1px solid var(--ink); color: var(--ink); background: transparent;
+    margin-right: 6px; margin-bottom: 6px;
+  }
+  .badge.amber { border-color: var(--amber); color: var(--amber); }
+  .badge.forest { border-color: var(--forest); color: var(--forest); }
+  .badge.sky { border-color: var(--sky); color: var(--sky); }
+  .badge.solid { background: var(--ink); color: var(--bone); }
+  .badge.solid.amber { background: var(--amber); color: var(--ink); border-color: var(--amber); }
+
+  /* Form input */
+  .input {
+    font-family: var(--body); font-size: 15px;
+    padding: 10px 14px;
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--ink);
+    width: 100%;
+  }
+  .input:focus { outline: none; border-color: var(--amber); }
+
+  /* LEXICON */
+  .lexicon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .lex-card {
+    background: var(--bone);
+    border: 1px solid var(--border-soft);
+    border-radius: 4px;
+    padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .lex-card .term {
+    font-family: var(--display); font-weight: 600;
+    font-size: 22px; color: var(--ink);
+    line-height: 1; letter-spacing: -0.005em;
+  }
+  .lex-card .term::after {
+    content: ""; display: block; width: 18px; height: 2px;
+    background: var(--amber); margin-top: 6px;
+  }
+  .lex-card .def {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* WORDMARKS */
+  .wordmarks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .wm {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 24px;
+    background: var(--bone);
+    display: flex; flex-direction: column; gap: 14px;
+    min-height: 180px; justify-content: space-between;
+  }
+  .wm.dark { background: var(--dark-bg); border-color: #2A2520; }
+  .wm .lockup-img { width: 100%; max-height: 96px; height: auto; object-fit: contain; display: block; }
+  .wm .note {
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+  }
+  .wm.dark .note { color: #9A9088; }
+  .wm .role {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--amber); letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .wm.dark .role { color: #D9A04A; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    margin-top: 64px;
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .wrap { padding: 40px 20px 64px; }
+    .lockup .name { font-size: 40px; }
+    h2 { font-size: 28px; }
+    .color-grid, .components, .wordmarks { grid-template-columns: 1fr; }
+    .lexicon, .extended .row { grid-template-columns: repeat(2, 1fr); }
+    .type-display { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="lockup">
+      <img class="lockup-img" src="brand/bristlecone_nobkgrd.png" alt="Bristlecone — The Goal Execution OS. Turn intent into accountable execution." />
+    </div>
+
+    <p class="tagline">Turn intent into accountable execution. <span class="amb">Step slowly. Compound for decades.</span></p>
+
+    <div class="meta">
+      <span>Brand System · v1 · 2026-04-28</span>
+      <span class="tag">design/design-system.html</span>
+    </div>
+  </header>
+
+  <!-- COLOR HIERARCHY -->
+  <section>
+    <div class="section-label">01 · Color Hierarchy</div>
+    <h2>Three colors, used with restraint.</h2>
+    <p class="section-intro">The palette is paper, ink, and the single living branch. Amber is rare on purpose &mdash; it marks the moments that matter, not every surface. Pure white never appears.</p>
+
+    <div class="color-grid">
+      <div class="swatch">
+        <div class="fill" style="background:#2B2B2B"><span class="label">Charcoal Ink</span></div>
+        <div class="body-row">
+          <span class="tier">Charcoal Ink</span>
+          <span class="hex">#2B2B2B</span>
+          <span class="use">Body type, primary linework, the durable substrate. Never pure black &mdash; warm, slightly softened.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#C8893D"><span class="label">Living Amber</span></div>
+        <div class="body-row">
+          <span class="tier">Living Amber</span>
+          <span class="hex">#C8893D</span>
+          <span class="use">The single living branch. Used sparingly: accents, key moments, the dot on the &ldquo;i.&rdquo; If everything is amber, nothing is.</span>
+        </div>
+      </div>
+      <div class="swatch light">
+        <div class="fill" style="background:#F2EDE3; border-bottom: 1px solid #D9CFB8"><span class="label">Parchment</span></div>
+        <div class="body-row">
+          <span class="tier">Parchment</span>
+          <span class="hex">#F2EDE3</span>
+          <span class="use">Surface and backgrounds. Warm, paper-like, never pure white. Pair with bone (#FAF6EC) for cards and elevation.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="extended">
+      <div class="section-label" style="margin-top:32px">Extended Palette</div>
+      <div class="row">
+        <div class="ext"><div class="chip" style="background:#FAF6EC"></div><div class="info"><div class="name">Bone</div><div class="hex">#FAF6EC</div></div></div>
+        <div class="ext"><div class="chip" style="background:#D9CFB8"></div><div class="info"><div class="name">Border Tan</div><div class="hex">#D9CFB8</div></div></div>
+        <div class="ext"><div class="chip" style="background:#6B645A"></div><div class="info"><div class="name">Warm Muted</div><div class="hex">#6B645A</div></div></div>
+        <div class="ext"><div class="chip" style="background:#14110D"></div><div class="info"><div class="name">Warm Black</div><div class="hex">#14110D</div></div></div>
+        <div class="ext"><div class="chip" style="background:#EDE6D6"></div><div class="info"><div class="name">Bone Ink (dark)</div><div class="hex">#EDE6D6</div></div></div>
+        <div class="ext"><div class="chip" style="background:#D9A04A"></div><div class="info"><div class="name">Amber (dark)</div><div class="hex">#D9A04A</div></div></div>
+        <div class="ext"><div class="chip" style="background:#2F4A3A"></div><div class="info"><div class="name">Forest</div><div class="hex">#2F4A3A</div></div></div>
+        <div class="ext"><div class="chip" style="background:#6B8FA8"></div><div class="info"><div class="name">Altitude Sky</div><div class="hex">#6B8FA8</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section>
+    <div class="section-label">02 · Typography</div>
+    <h2>Old-craft serif, refined body, quiet mono.</h2>
+    <p class="section-intro">EB Garamond carries the wordmark and display. Lora handles body. IBM Plex Mono is for labels, codes, and metadata &mdash; never headlines. No tech-startup sans, no display gimmicks.</p>
+
+    <div class="type-block">
+      <p class="type-display">Step slowly.<br/><span class="amb">Compound for decades.</span></p>
+      <div class="type-meta">EB Garamond · 600 · Display</div>
+
+      <p class="type-display italic">The oldest living things on Earth grow about an inch per decade.</p>
+      <div class="type-meta">EB Garamond · 500 italic · Editorial</div>
+
+      <p class="type-body-sample">Bristlecone is an operator-in-the-loop execution system that takes a goal, decomposes it into strategy, tactics, and execution paths, routes the work through real transports, measures outcomes against baselines, and escalates honestly when capability, confidence, or access is missing.</p>
+      <div class="type-meta">Lora · 400 · Body · 16px</div>
+
+      <code class="type-mono-sample">capability.gap_check &mdash;&mdash; transport.email.agentmail &mdash;&mdash; PASS</code>
+      <div class="type-meta">IBM Plex Mono · 400 · Code · Labels · Metadata</div>
+
+      <div class="weight-ladder">
+        <div class="row"><span class="w">EB G · 400</span><span class="sample" style="font-weight:400">Bristlecone &mdash; the regular weight</span></div>
+        <div class="row"><span class="w">EB G · 500</span><span class="sample" style="font-weight:500">Bristlecone &mdash; the medium weight</span></div>
+        <div class="row"><span class="w">EB G · 600</span><span class="sample" style="font-weight:600">Bristlecone &mdash; the wordmark weight</span></div>
+        <div class="row"><span class="w">EB G · 700</span><span class="sample" style="font-weight:700">Bristlecone &mdash; the heaviest</span></div>
+        <div class="row"><span class="w">EB G · italic</span><span class="sample" style="font-style:italic">Bristlecone &mdash; the editorial italic</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section>
+    <div class="section-label">03 · Principles</div>
+    <h2>Five rules the system holds itself to.</h2>
+    <p class="section-intro">These aren&rsquo;t marketing copy. They are testable claims about how the system behaves. If a feature breaks one of them, it doesn&rsquo;t ship.</p>
+
+    <div class="principles">
+      <div class="principle">
+        <span class="num">01</span>
+        <h3>Prove readiness, not certainty.</h3>
+        <p>The system never pretends. It surfaces what it knows, what it doesn&rsquo;t, and what would have to be true for an action to succeed. Confidence is earned by checking, not by tone.</p>
+      </div>
+      <div class="principle">
+        <span class="num">02</span>
+        <h3>Operator-in-the-loop.</h3>
+        <p>Humans hold every meaningful decision. Agents propose; operators choose, revise, or reject. Automation is the mechanism, not the authority.</p>
+      </div>
+      <div class="principle">
+        <span class="num">03</span>
+        <h3>Honest escalation.</h3>
+        <p>Capability, confidence, and access gaps are surfaced structurally &mdash; never hidden behind retries, fallbacks, or automation theater. If we can&rsquo;t do something, we say so.</p>
+      </div>
+      <div class="principle">
+        <span class="num">04</span>
+        <h3>Slow growth, compound returns.</h3>
+        <p>Patience is a feature, not a limitation. The system optimizes for businesses that plan to be around in thirty years, not ones racing to torch a runway.</p>
+      </div>
+      <div class="principle">
+        <span class="num">05</span>
+        <h3>Domain-neutral architecture.</h3>
+        <p>The substrate is the same whether the work is marketing, ops, or strategy. Goals, baselines, capability gaps, and review gates don&rsquo;t care about the domain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section>
+    <div class="section-label">04 · Components</div>
+    <h2>The interface vocabulary.</h2>
+    <p class="section-intro">Buttons are restrained. Cards are paper-like. Badges classify without shouting. The interface should feel like a well-made notebook, not a dashboard.</p>
+
+    <div class="components">
+      <div class="component">
+        <div class="label">Buttons</div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#">Run capability check</a>
+          <a class="btn btn-ghost" href="#">Review</a>
+          <a class="btn btn-amber" href="#">Approve</a>
+        </div>
+      </div>
+
+      <div class="component">
+        <div class="label">Badges</div>
+        <div>
+          <span class="badge">Draft</span>
+          <span class="badge amber">Needs review</span>
+          <span class="badge forest">Approved</span>
+          <span class="badge sky">In observation</span>
+          <span class="badge solid">Sent</span>
+          <span class="badge solid amber">Escalated</span>
+        </div>
+      </div>
+
+      <div class="component">
+        <div class="label">Card · Capability check</div>
+        <div class="demo-card">
+          <div class="kicker">Honest resolution</div>
+          <h4>LinkedIn DM transport not configured</h4>
+          <p>The strategy requires LinkedIn outreach. No transport is registered for this surface, so the play cannot run. Resolve the gap or change the channel.</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <div class="label">Form · Operator review</div>
+        <input class="input" type="text" value="Why are you overriding the primary recommendation?" />
+        <div class="btn-row" style="margin-top:12px">
+          <a class="btn btn-primary" href="#">Capture override reason</a>
+          <a class="btn btn-ghost" href="#">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND LEXICON -->
+  <section>
+    <div class="section-label">05 · Brand Lexicon</div>
+    <h2>The native vocabulary.</h2>
+    <p class="section-intro">Bristlecone names parts of itself the way a forester names parts of a tree. The product is easier to talk about, easier to teach, and harder to confuse with the workspace-and-projects SaaS template every other tool uses.</p>
+
+    <div class="lexicon">
+      <div class="lex-card">
+        <span class="term">Rings</span>
+        <span class="def">Year-over-year history view in the operator console. One ring per year of campaigns, learnings, and baselines.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Roots</span>
+        <span class="def">Context packs &mdash; offer, proof, brand, constraints. The deep, slow-built foundation everything else draws from.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Soil</span>
+        <span class="def">Channel and audience environment. Test the soil before you plant.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Season</span>
+        <span class="def">A campaign cycle. Plant in spring, tend through summer, harvest in fall, study the result through winter.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Cone</span>
+        <span class="def">A campaign output &mdash; the seed of the next cycle. Drop a cone to launch a campaign.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Grove</span>
+        <span class="def">The portfolio. Many trees, one ecosystem. Strategies share Soil and Roots across the Grove.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Heartwood</span>
+        <span class="def">Governance substrate. The c/r/j gates and honest-resolution guards that hold when everything else flexes.</span>
+      </div>
+      <div class="lex-card">
+        <span class="term">Methuselah</span>
+        <span class="def">Opt-in 3&ndash;5 year planning view. The flagship long-horizon mode for businesses thinking in decades.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORDMARKS -->
+  <section>
+    <div class="section-label">06 · Wordmarks · Lockups</div>
+    <h2>Three lockups, one identity.</h2>
+    <p class="section-intro">The tree is the default. The rings are for in-product surfaces where the tree is too detailed to read. The dark-mode variant is for any surface that can&rsquo;t carry parchment.</p>
+
+    <div class="wordmarks">
+      <div class="wm">
+        <img class="lockup-img" src="brand/bristlecone_nobkgrd.png" alt="Bristlecone primary lockup" />
+        <p class="note">The primary lockup. Tree silhouette, serif wordmark, tagline, and amber-diamond divider. Default for marketing surfaces and external comms.</p>
+        <span class="role">Mark + wordmark · Default</span>
+      </div>
+
+      <div class="wm">
+        <img class="lockup-img" src="brand/Bristlecone_alt.png" alt="Bristlecone rings variant" />
+        <p class="note">In-product variant. Rings cross-section replaces the tree. Used for the operator console, app icons, and favicons where the tree is too detailed to read.</p>
+        <span class="role">Console · App icon</span>
+      </div>
+
+      <div class="wm dark">
+        <img class="lockup-img" src="brand/Bristlecone_Dark.png" alt="Bristlecone dark-mode lockup" />
+        <p class="note">Dark-mode variant. Bone ink on warm near-black, brightened amber. Reads as &ldquo;ink on dark linen,&rdquo; not glowing on screen.</p>
+        <span class="role">Dark mode · Inverse</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Bristlecone Design System · v1</span>
+    <span>design/design-system.html · 2026-04-28</span>
+  </footer>
+
+</div>
+</body>
+</html>

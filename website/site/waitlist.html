@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F2EDE3" />
+  <title>Waitlist — Bristlecone</title>
+  <meta name="description" content="One purpose. Leave your address. We&rsquo;ll write to you when there&rsquo;s a seat." />
+  <link rel="icon" type="image/png" href="assets/images/tranbackBristlecone.png" />
+  <link rel="apple-touch-icon" href="assets/images/tranbackBristlecone.png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="shell row">
+    <a href="index.html" class="brand-lockup" aria-label="Bristlecone — home">
+      <img class="mark" src="assets/images/tranbackBristlecone.png" alt="" />
+      <span class="name">Bristlecone<span class="dot">.</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="philosophy.html">Philosophy</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="journal.html">Journal</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="bar"></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero no-rule">
+    <div class="shell-narrow" style="text-align:center;">
+      <div class="colophon-rule reveal" style="justify-content:center;">
+        <span class="amb">Waitlist</span>
+        <span class="line" aria-hidden="true"></span>
+        <span>One purpose</span>
+      </div>
+      <h1 class="reveal" style="font-size: clamp(40px, 6vw, 84px);">Take a <em class="amb">seat</em>.</h1>
+      <p class="deck reveal" style="margin-left:auto;margin-right:auto;">Seats open quietly, in small groups. Leave your address and a sentence about your business. We&rsquo;ll write to you when there&rsquo;s a seat &mdash; not before, and not because we want to.</p>
+    </div>
+  </section>
+
+  <section class="no-rule" style="padding: 24px 0 80px;">
+    <div class="shell">
+      <form class="waitlist reveal" data-waitlist novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="business">What you run</label>
+          <input id="business" name="business" type="text" placeholder="e.g. independent architecture practice, Sonoma" />
+        </div>
+        <div class="field">
+          <label for="note">A sentence on what you&rsquo;re hoping for</label>
+          <textarea id="note" name="note" rows="3" placeholder="Optional. We do read these."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Join the waitlist <span class="arrow">→</span></button>
+        <p class="meta" data-status>We don&rsquo;t send marketing emails in the meantime.</p>
+      </form>
+
+      <div class="shell-narrow reveal" style="margin-top:64px;">
+        <div class="section-mark" style="margin-bottom: 24px;">
+          <span class="num">what next</span>
+          <div class="title">
+            <h2 style="font-size: clamp(24px, 2.4vw, 30px);">What happens after you submit.</h2>
+          </div>
+        </div>
+        <ol class="steps" style="margin: 0;">
+          <li>
+            <span class="badge">Within minutes</span>
+            <div>
+              <h3 style="font-size: 22px;">A short confirmation email.</h3>
+              <p>From a real address. No no-reply. If you reply, a person reads it.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge">When a seat opens</span>
+            <div>
+              <h3 style="font-size: 22px;">A second email.</h3>
+              <p>It tells you what tier is open, what your first season would look like, and what we&rsquo;d need from you to start. You decide from there.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge">Until then</span>
+            <div>
+              <h3 style="font-size: 22px;">Silence, on purpose.</h3>
+              <p>No newsletter, no &ldquo;just checking in&rdquo; email, no growth-marketing drip. We don&rsquo;t do those, even to friends.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="legal">
+      <span>&copy; 2026 Bristlecone Systems</span>
+      <span><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="colophon.html">Colophon</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<!--
+  Bristlecone — Digital Business Card
+  Standard 3.5" × 2" ratio. Open in browser, or render to PNG with:
+    msedge.exe --headless --disable-gpu --window-size=1050,600
+               --screenshot=business-card.png
+               file:///.../business-card.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Bryan Piard — Bristlecone</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Lora:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #2B2B2B;
+    --ink-soft:   #4A4540;
+    --amber:      #C8893D;
+    --parchment:  #F2EDE3;
+    --bone:       #FAF6EC;
+    --border:     #D9CFB8;
+    --muted:      #6B645A;
+    --display: 'EB Garamond', Garamond, serif;
+    --body:    'Lora', Georgia, serif;
+    --mono:    'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; background: #2A2520; min-height: 100vh; }
+  body {
+    font-family: var(--body);
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 80px;
+  }
+
+  /* Card — fixed business-card ratio 3.5 : 2 */
+  .card {
+    width: 1050px; height: 600px;
+    background: var(--parchment);
+    color: var(--ink);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    grid-template-rows: 600px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+  }
+
+  /* paper grain on whole card */
+  .card::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(43,43,43,0.025) 0 1px, transparent 2px),
+      radial-gradient(circle at 73% 41%, rgba(43,43,43,0.022) 0 1px, transparent 2px),
+      radial-gradient(circle at 41% 81%, rgba(200,137,61,0.025) 0 1px, transparent 2px),
+      radial-gradient(circle at 88% 12%, rgba(43,43,43,0.020) 0 1px, transparent 2px);
+    background-size: 32px 32px, 44px 44px, 36px 36px, 52px 52px;
+    mix-blend-mode: multiply;
+    z-index: 0;
+  }
+
+  /* LEFT — logo panel */
+  .left {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    padding: 36px 20px 36px 36px;
+    z-index: 1;
+  }
+  .left .lockup {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* vertical divider */
+  .card::after {
+    content: ""; position: absolute;
+    left: 420px; top: 60px; bottom: 60px;
+    width: 1px; background: var(--border);
+    z-index: 0;
+  }
+  /* small amber diamond on the divider */
+  .diamond {
+    position: absolute;
+    left: 420px; top: 50%;
+    width: 8px; height: 8px;
+    background: var(--amber);
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 2;
+  }
+
+  /* RIGHT — info panel */
+  .right {
+    height: 600px;
+    padding: 56px 56px 48px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .role {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 14px 0 0;
+  }
+  .role .amb { color: var(--amber); }
+
+  .middle {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .practice {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .practice .amb { color: var(--amber); font-style: normal; font-weight: 600; }
+
+  .contact {
+    margin-top: auto;
+    padding-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .contact .lines {
+    display: flex; flex-direction: column; gap: 6px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.3px;
+  }
+  .contact .lines .label {
+    font-size: 9.5px;
+    color: var(--amber);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .contact .tagline {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.4;
+    max-width: 200px;
+  }
+  .contact .tagline strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--amber);
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- LEFT: Logo -->
+    <div class="left">
+      <img class="lockup" src="brand/bristlecone_nobkgrd.png" alt="Bristlecone — The Goal Execution OS" />
+    </div>
+
+    <span class="diamond"></span>
+
+    <!-- RIGHT: Identity + Contact -->
+    <div class="right">
+      <div class="identity">
+        <h1 class="name">Bryan Piard</h1>
+        <p class="role">Founder <span class="amb">·</span> Bristlecone</p>
+      </div>
+
+      <div class="middle">
+        <p class="practice">An operator-in-the-loop execution system for businesses<br/><span class="amb">built to last.</span></p>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="contact">
+        <div class="lines">
+          <span class="label">Contact</span>
+          <span>bpiard@gmail.com</span>
+          <span>bristlecone.os</span>
+        </div>
+        <div class="tagline">
+          Step slowly.<br/>
+          <strong>Compound for decades.</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
