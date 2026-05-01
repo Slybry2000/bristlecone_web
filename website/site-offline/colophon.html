@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#F2EDE3" />
   <title>Colophon — Bristlecone</title>
   <meta name="description" content="Type, photography, and build credits. The brand wears its craft." />
+  <meta name="robots" content="noai, noimageai" />
   <link rel="icon" type="image/png" href="assets/images/tranbackBristlecone.png" />
   <link rel="apple-touch-icon" href="assets/images/tranbackBristlecone.png" />
   <link rel="stylesheet" href="assets/site.css" />
@@ -54,7 +55,9 @@
         <p><strong>IBM Plex Mono</strong> &mdash; designed by Mike Abbink and Bold Monday for IBM. Used for labels, metadata, and code. Released under the SIL Open Font License.</p>
 
         <h2>Photography &amp; illustration</h2>
-        <p>Where photography appears, it is real, attributed, and licensed. No stock. The bristlecone silhouettes and the rings cross-section illustrations are drawn in-house from reference photography of <em>Pinus longaeva</em> in the Inyo National Forest. We&rsquo;ll list the photographers here when their work appears.</p>
+        <p>If photography ever appears on this site, it will be real, attributed, and licensed. No stock. The bristlecone silhouettes and ring cross-sections are drawn in-house from our own field sketches and public-domain dendrology illustrations.</p>
+
+        <p>EB Garamond, Lora, and IBM Plex Mono are released under the SIL Open Font License (OFL) version 1.1. Per-font attributions are at <a href="legal/fonts.txt">/legal/fonts.txt</a>; the full OFL text is published by SIL at <a href="https://scripts.sil.org/OFL" rel="noopener">scripts.sil.org/OFL</a>.</p>
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin: 32px 0; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
           <img src="assets/images/tranbackBristlecone.png" alt="Bristlecone pine silhouette." style="width: 100%; max-width: 200px; margin: 0 auto; display: block; mix-blend-mode: multiply; opacity: 0.92;" />
@@ -62,13 +65,15 @@
         </div>
 
         <h2>Build</h2>
-        <p>Astro for the static rendering. Tailwind, used as a utility layer over our design tokens. Self-hosted fonts via <code>@fontsource</code>. MDX for long-form content. Vercel for hosting. Plausible (or no analytics at all on certain pages) for the bare measurement we keep.</p>
+        <p>Right now: hand-written HTML, hand-written CSS, hand-written JS. Deployed via GitHub Pages. Plausible for the bare measurement we keep. When the site grows enough to warrant a build step, we will move to Astro and document the change here.</p>
 
         <h2>Materials we don&rsquo;t use</h2>
         <p>No third-party trackers. No retargeting pixels. No chat widgets. No popups. No A/B testing on our own readers. No cookie banner because there is nothing to consent to. The site is, as nearly as we can make it, the same as a printed booklet you found on a friend&rsquo;s coffee table.</p>
 
         <h2>Source &amp; credits</h2>
         <p>The brand work was done by the founding team. The visual system reference lives in <code>design-system.html</code> and <code>brand-book-a4.pdf</code>. The site source is private at the moment; we will open the templates if it ever feels useful to others.</p>
+
+        <p>All third-party names, marks, and logos referenced on this page are the property of their respective owners. Mention here does not imply endorsement or partnership.</p>
 
         <p class="signature">Made slowly, on purpose. Methuselah Grove, 2026.</p>
       </article>
@@ -89,8 +94,8 @@
       <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="colophon.html">Colophon</a></li><li><a href="mailto:hello@bristlecone.so">Contact</a></li></ul></div>
     </div>
     <div class="legal">
-      <span>&copy; 2026 Bristlecone Systems</span>
-      <span><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="colophon.html">Colophon</a></span>
+      <span>&copy; 2026 Bristlecone Systems [LLC] &middot; [Registered address &mdash; confirm] &middot; <a href="mailto:hello@bristlecone.so">hello@bristlecone.so</a></span>
+      <span><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="legal/subprocessors.html">Subprocessors</a><a href="legal/imprint.html">Imprint</a><a href="legal/accessibility.html">Accessibility</a><a href="colophon.html">Colophon</a></span>
     </div>
   </div>
 </footer>

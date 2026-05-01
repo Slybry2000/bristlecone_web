@@ -4,391 +4,143 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#F2EDE3" />
-  <title>Bristlecone — Your first marketing season, live in 90 days.</title>
-  <meta name="description" content="A marketing OS for businesses built to last. Roots mapped, first campaign live, reply loop closed — in one season, not one year." />
+  <title>Bristlecone — under construction</title>
+  <meta name="description" content="Bristlecone is offline while we rework the site. Back soon." />
+  <meta name="robots" content="noindex, nofollow, noai, noimageai" />
   <link rel="icon" type="image/png" href="assets/images/tranbackBristlecone.png" />
   <link rel="apple-touch-icon" href="assets/images/tranbackBristlecone.png" />
-  <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500&family=Lora:wght@400&family=IBM+Plex+Mono:wght@400&display=swap');
+
+    :root {
+      --ink:        #2B2B2B;
+      --ink-soft:   #4A4540;
+      --amber:      #C8893D;
+      --parchment:  #F2EDE3;
+      --border:     #D9CFB8;
+      --muted:      #6B645A;
+      --display: 'EB Garamond', Garamond, 'Times New Roman', serif;
+      --body:    'Lora', Georgia, serif;
+      --mono:    'IBM Plex Mono', Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.65;
+      font-size: 17px;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 24px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(43,43,43,0.022) 0 1px, transparent 2px),
+        radial-gradient(circle at 73% 41%, rgba(43,43,43,0.018) 0 1px, transparent 2px),
+        radial-gradient(circle at 41% 81%, rgba(200,137,61,0.022) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 12%, rgba(43,43,43,0.020) 0 1px, transparent 2px);
+      background-size: 8mm 8mm, 11mm 11mm, 9mm 9mm, 13mm 13mm;
+      mix-blend-mode: multiply;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      text-align: center;
+    }
+
+    .mark {
+      width: 96px;
+      height: auto;
+      opacity: 0.92;
+      margin: 0 auto 28px;
+      display: block;
+    }
+
+    .colophon-rule {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .colophon-rule .amb { color: var(--amber); }
+    .colophon-rule .line {
+      flex: 0 0 60px;
+      height: 1px;
+      background: var(--border);
+      display: inline-block;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    h1 em { font-style: italic; color: var(--amber); }
+
+    p {
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+    }
+    p.small {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-top: 36px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--border);
+      margin: 32px auto;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="shell row">
-    <a href="index.html" class="brand-lockup" aria-label="Bristlecone — home">
-      <img class="mark" src="assets/images/tranbackBristlecone.png" alt="" />
-      <span class="name">Bristlecone<span class="dot">.</span></span>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="philosophy.html">Philosophy</a>
-      <a href="how-it-works.html">How it works</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="journal.html">Journal</a>
-      <a href="waitlist.html" class="cta">Join the waitlist</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="bar"></span></button>
-  </div>
-</header>
-
 <main>
+  <img class="mark" src="assets/images/tranbackBristlecone.png" alt="Bristlecone mark" />
 
-  <!-- HERO — Stripe Press masthead -->
-  <section class="hero no-rule">
-    <div class="shell">
-      <div class="colophon-rule reveal">
-        <span class="amb">Bristlecone</span>
-        <span>A marketing OS for businesses built to last</span>
-        <span class="line" aria-hidden="true"></span>
-        <span>Est. 2026 · Methuselah, Ridgeline</span>
-      </div>
+  <div class="colophon-rule">
+    <span class="amb">Bristlecone</span>
+    <span class="line" aria-hidden="true"></span>
+    <span>Under construction</span>
+  </div>
 
-      <div class="hero-with-tree">
-        <div>
-          <h1 class="reveal">Your first marketing<br/><em class="amb">season</em>, live in 90&nbsp;days.</h1>
+  <h1>Reworking the <em>site</em>.</h1>
 
-          <p class="deck reveal">
-            The tree&rsquo;s rings are annual. Ours are seasonal. Your business compounds for decades.
-            Bristlecone runs your campaigns through a Goal&nbsp;&rarr;&nbsp;Strategy&nbsp;&rarr;&nbsp;Tactic
-            pipeline, with you in command of every consequential decision.
-          </p>
+  <p>Bristlecone is offline while we revise. The work continues; the storefront does not, for now.</p>
 
-          <p class="small reveal">A season is roughly a quarter. The first campaign goes live in weeks, not years. We&rsquo;re new and pre-launch &mdash; below is what you&rsquo;ll actually receive, and when.</p>
+  <hr class="divider" />
 
-          <p class="quiet-cta reveal">See the <a href="how-it-works.html">first 90 days&nbsp;<span class="arrow">&rarr;</span></a> &nbsp;or read <a href="philosophy.html">the philosophy</a>.</p>
-        </div>
-        <img class="tree reveal" src="assets/images/tranbackBristlecone.png" alt="Hand-drawn bristlecone pine, weathered, with a single living branch in amber." loading="eager" />
-      </div>
-
-      <div class="first-scroll reveal" aria-label="What you receive in the first 90 days">
-        <p class="strip-caption">
-          <span class="amb">Pre-launch</span>
-          <span>The formats below are real. We have no customer proof yet, including ours.</span>
-          <span class="line" aria-hidden="true"></span>
-        </p>
-
-        <div class="season-list" role="table" aria-label="What you receive in the first 90 days">
-          <div class="row" role="row">
-            <span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Week 02</span>
-            <span class="v" role="cell">
-              <span class="file">root-map.pdf</span>
-              <span class="desc">A one-page document &mdash; your offer, ICP, proof, voice, and constraints. The roots Bristlecone reads once and remembers.</span>
-              <span class="tag">Format ready</span>
-            </span>
-          </div>
-          <div class="row" role="row">
-            <span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Week 04</span>
-            <span class="v" role="cell">
-              <span class="file">campaign-launch-record</span>
-              <span class="desc">Goal &rarr; Strategy &rarr; Tactic, the channel, the launch date, and your commit, revise, or jurisdiction stamp on every send.</span>
-              <span class="tag">Format ready</span>
-            </span>
-          </div>
-          <div class="row pending" role="row">
-            <span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Week 08&ndash;12</span>
-            <span class="v" role="cell">
-              <span class="file">reply-loop-report</span>
-              <span class="desc">Each reply: received, classified, decided, responded, closed. The next tactic is queued from what you learned.</span>
-              <span class="tag">Format ready &middot; no closed loop yet</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="commitment-card">
-          <div class="label">Week-12 commitment</div>
-          <p>Design partners one through ten: first reply loop closed by week&nbsp;12, or your seat is refunded and the miss is listed at <a href="failed.html">/failed</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § I — THE HONEST PITCH -->
-  <section>
-    <div class="shell">
-      <div class="section-mark reveal">
-        <span class="num">§ I</span>
-        <div class="title">
-          <h2>What we hold ourselves to.</h2>
-          <p class="sub">Three commitments. Boring on purpose. The kind of boring that compounds.</p>
-        </div>
-      </div>
-
-      <div class="three-up">
-        <div class="item reveal">
-          <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <circle cx="16" cy="16" r="3" />
-            <circle cx="16" cy="16" r="7" />
-            <circle cx="16" cy="16" r="11" />
-            <circle cx="16" cy="16" r="14" stroke-dasharray="2 3" />
-          </svg>
-          <h3>Goal &rarr; Strategy &rarr; Tactic.</h3>
-          <p>Every campaign decomposes the same way. Nothing happens without a goal that ties to a business outcome you actually have.</p>
-        </div>
-        <div class="item reveal">
-          <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true">
-            <path d="M16 4 V18" />
-            <path d="M16 18 C 12 18 9 21 7 26" />
-            <path d="M16 18 C 18 22 22 24 27 24" />
-            <path d="M16 18 C 14 22 11 24 6 23" />
-            <path d="M16 18 C 19 20 22 21 26 19" />
-          </svg>
-          <h3>Operator-in-the-loop.</h3>
-          <p>The system proposes. You commit, revise, or send it back to its jurisdiction. It does not act without you. That is the whole shape of it.</p>
-        </div>
-        <div class="item reveal">
-          <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <path d="M5 26 L14 17 L19 22 L27 12" />
-            <path d="M21 12 H27 V18" />
-            <path d="M5 5 V26 H27" stroke-dasharray="1.5 2" />
-          </svg>
-          <h3>Evidence over claims.</h3>
-          <p>Every output is traceable to its inputs. No black-box &ldquo;AI did it.&rdquo; You can read the whole pipeline, top to bottom, on a Tuesday afternoon.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § II — WHAT THIS IS NOT -->
-  <section>
-    <div class="shell-narrow">
-      <div class="section-mark reveal">
-        <span class="num">§ II</span>
-        <div class="title">
-          <h2>What this is not.</h2>
-          <p class="sub">Most of what gets sold as marketing software is sold to a different reader. We&rsquo;d rather say so plainly than imply otherwise.</p>
-        </div>
-      </div>
-
-      <div class="paper-card reveal">
-        <div class="label">Anti-positioning</div>
-        <ul>
-          <li>Not a growth-hacking tool.</li>
-          <li>Not an AI content firehose.</li>
-          <li>Not a way to &ldquo;do marketing while you sleep.&rdquo;</li>
-          <li>Not for businesses that need to triple revenue in six months.</li>
-        </ul>
-        <p class="closing">If any of those are what you&rsquo;re looking for, we genuinely wish you well &mdash; there are better tools out there for that job.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- § III — WHAT IT ACTUALLY DOES -->
-  <section>
-    <div class="shell">
-      <div class="section-mark reveal">
-        <span class="num">§ III</span>
-        <div class="title">
-          <h2>What it actually does.</h2>
-          <p class="sub">A season, in plain language. The same shape every time.</p>
-        </div>
-      </div>
-
-      <div class="two-up">
-        <div class="reveal">
-          <p>You give it your <em>roots</em> &mdash; your offer, your proof, your brand voice, your constraints. Bristlecone reads them once and remembers.</p>
-          <p>It plans a season &mdash; about a quarter. It drafts the cones &mdash; the campaigns &mdash; and shows them to you before anything ships.</p>
-          <p>You commit, revise, or push back. When you commit, the system executes through real channels. Real email, real LinkedIn, real direct outreach. No mailto-link theater.</p>
-          <p>Every decision and every outcome is recorded in your rings. Season over season, the picture sharpens.</p>
-          <p style="margin-top:32px;"><a href="how-it-works.html" class="link-arrow">Walk through one season&nbsp;<span class="arrow">→</span></a></p>
-        </div>
-        <div class="reveal" aria-hidden="false">
-          <svg class="pipeline" data-draw-pipeline viewBox="0 0 540 420" role="img" aria-label="Goal to Strategy to Tactic pipeline diagram">
-            <defs>
-              <marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0 0 L8 4 L0 8 z" fill="#C8893D" />
-              </marker>
-            </defs>
-            <!-- columns -->
-            <g font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#9E6C2F" text-anchor="middle">
-              <text x="90" y="36">GOAL</text>
-              <text x="270" y="36">STRATEGY</text>
-              <text x="450" y="36">TACTIC</text>
-            </g>
-            <!-- nodes -->
-            <g fill="none" stroke="#2B2B2B" stroke-width="1.1">
-              <circle data-draw-node cx="90" cy="100" r="26" />
-              <circle data-draw-node cx="270" cy="160" r="26" />
-              <circle data-draw-node cx="270" cy="240" r="26" />
-              <circle data-draw-node cx="450" cy="120" r="22" />
-              <circle data-draw-node cx="450" cy="200" r="22" />
-              <circle data-draw-node cx="450" cy="280" r="22" />
-            </g>
-            <!-- gates -->
-            <g font-family="EB Garamond, serif" font-size="14" font-style="italic" fill="#2B2B2B" text-anchor="middle">
-              <text x="90" y="105">G</text>
-              <text x="270" y="165">S<tspan font-size="10" dy="-4">1</tspan></text>
-              <text x="270" y="245">S<tspan font-size="10" dy="-4">2</tspan></text>
-              <text x="450" y="125">T<tspan font-size="9" dy="-3">1</tspan></text>
-              <text x="450" y="205">T<tspan font-size="9" dy="-3">2</tspan></text>
-              <text x="450" y="285">T<tspan font-size="9" dy="-3">3</tspan></text>
-            </g>
-            <!-- connections -->
-            <g fill="none" stroke="#C8893D" stroke-width="1" marker-end="url(#arr)">
-              <path data-draw-line data-delay="0"   d="M116 110 C 180 110, 200 150, 244 158" />
-              <path data-draw-line data-delay="160" d="M116 112 C 180 220, 200 232, 244 240" />
-              <path data-draw-line data-delay="640" d="M296 156 C 360 130, 380 124, 428 122" />
-              <path data-draw-line data-delay="800" d="M296 162 C 360 180, 380 198, 428 200" />
-              <path data-draw-line data-delay="960" d="M296 244 C 360 260, 380 278, 428 280" />
-            </g>
-            <!-- gate labels -->
-            <g font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1" fill="#6B645A">
-              <text x="180" y="108">commit</text>
-              <text x="180" y="220" fill="#9E6C2F">revise</text>
-              <text x="360" y="120">commit</text>
-              <text x="360" y="270" fill="#9E6C2F">jurisdiction</text>
-            </g>
-            <!-- ring -->
-            <g fill="none" stroke="#D9CFB8" stroke-width="0.6">
-              <circle cx="270" cy="380" r="18" />
-              <circle cx="270" cy="380" r="12" />
-              <circle cx="270" cy="380" r="6" />
-            </g>
-            <text x="270" y="412" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#6B645A" text-anchor="middle">A RING IS WRITTEN</text>
-            <path d="M270 264 V 360" stroke="#D9CFB8" stroke-width="0.6" stroke-dasharray="2 3" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § IV — CADENCE LEDGER (mixed timescales: seasons + years) -->
-  <section>
-    <div class="shell">
-      <div class="section-mark reveal">
-        <span class="num">§ IV</span>
-        <div class="title">
-          <h2>Seasons stack into <em>rings</em>.</h2>
-          <p class="sub">Four seasons a year. Each one is a campaign cycle: roots mapped, tactics shipped, replies closed, decisions recorded. The cadence is quarterly. The compounding is the customer&rsquo;s.</p>
-        </div>
-      </div>
-
-      <div class="ledger reveal" role="table" aria-label="Operating cadence and compounding">
-        <div class="row" role="row"><span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Week 02</span><span class="v" role="cell">Roots mapped. <span class="grace">offer, ICP, proof, voice, constraints</span></span></div>
-        <div class="row" role="row"><span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Week 04</span><span class="v" role="cell">First campaign live. <span class="grace">real channel; you approved every send</span></span></div>
-        <div class="row" role="row"><span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Week 12</span><span class="v" role="cell">First ring closed. <span class="grace">one season, one decision trail, one honest baseline</span></span></div>
-        <div class="row" role="row"><span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Year 01</span><span class="v" role="cell">Four rings. <span class="grace">the pattern emerges; what works for you, specifically</span></span></div>
-        <div class="row" role="row"><span class="y" role="cell"><span class="tick" aria-hidden="true"></span>Year 05+</span><span class="v" role="cell">Compounding. <span class="grace">referrals start doing real work; retention is the asset</span></span></div>
-      </div>
-
-      <p class="italic-aside reveal" style="margin-top: 40px;">
-        We named ourselves after a tree that lives 4,000+ years. That&rsquo;s the horizon for your <em>business</em>, not our response time. <a href="philosophy.html">Why we picked that tree&nbsp;&rarr;</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- § V — WHO IT'S FOR -->
-  <section>
-    <div class="shell">
-      <div class="section-mark reveal">
-        <span class="num">§ V</span>
-        <div class="title">
-          <h2>Who this is for.</h2>
-          <p class="sub">Self-selection is a kindness to both of us.</p>
-        </div>
-      </div>
-
-      <div class="fits-grid reveal">
-        <div class="col">
-          <div class="label">Built for</div>
-          <h3>Operators who just shipped something and need their first hundred customers.</h3>
-          <ul>
-            <li>Solo founders, small teams, trades, professional services, craft makers, long-tail SaaS.</li>
-            <li>Burned by AI-slop content tools and growth-hack software.</li>
-            <li>Comfortable approving a draft before it ships.</li>
-            <li>Want weeks-to-months feedback loops, not next-week miracles.</li>
-            <li>Plan to still be running this business in a decade.</li>
-          </ul>
-        </div>
-        <div class="col">
-          <div class="label">Not built for</div>
-          <h3>Funded startups with hockey-stick KPIs.</h3>
-          <ul>
-            <li>Anyone who needs to triple revenue next quarter.</li>
-            <li>Marketers who want full automation with no oversight.</li>
-            <li>Allergic to reading drafts before they ship.</li>
-            <li>Looking for the &ldquo;AI does it all&rdquo; promise.</li>
-            <li>Quarterly KPIs and an investor watching the line.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="italic-aside" style="margin-top:32px;text-align:center;max-width:none;">If you&rsquo;re in the second column, we wish you well &mdash; and we mean it.</p>
-    </div>
-  </section>
-
-  <!-- § VI — PULL QUOTE -->
-  <section>
-    <div class="shell-narrow" style="text-align:center;">
-      <div class="section-mark reveal" style="grid-template-columns: 1fr; text-align:center;">
-        <span class="num" style="margin-bottom:8px; display:block;">§ VI</span>
-      </div>
-      <p class="pull reveal">
-        <span class="open">&ldquo;</span>The first ring is the one that decides the next hundred. We spend it on roots.<span class="close">&rdquo;</span>
-      </p>
-      <p class="eyebrow reveal" style="margin-top: 32px;">From the manifesto &middot; <a href="manifesto.html" style="color:inherit;">read in full</a></p>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section class="no-rule" style="padding-top: 24px;">
-    <div class="shell">
-      <div class="cta-band reveal">
-        <span class="kicker">Design partners 1&ndash;10</span>
-        <h2>Begin a season.</h2>
-        <p>We&rsquo;re opening ten design-partner seats with the week-12 commitment above. If you fit the &ldquo;built for&rdquo; column, the waitlist is the way in.</p>
-        <a href="waitlist.html" class="btn btn-primary">Join the waitlist <span class="arrow">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
+  <p class="small">Back soon.</p>
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="shell">
-    <div class="row">
-      <div>
-        <a href="index.html" class="brand-lockup-footer" aria-label="Bristlecone — home"><img src="assets/images/bristlecone_nobkgrd.png" alt="Bristlecone — Turn intent into accountable execution." /></a>
-        <p class="colon">A marketing OS for businesses built to last. Made slowly, on purpose.</p>
-      </div>
-      <div>
-        <h4>Product</h4>
-        <ul>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="for-whom.html">Who it&rsquo;s for</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="changelog.html">Changelog</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Reading</h4>
-        <ul>
-          <li><a href="philosophy.html">Philosophy</a></li>
-          <li><a href="journal.html">Journal</a></li>
-          <li><a href="manifesto.html">Manifesto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="colophon.html">Colophon</a></li>
-          <li><a href="failed.html">What failed</a></li>
-          <li><a href="mailto:hello@bristlecone.so">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="legal">
-      <span>&copy; 2026 Bristlecone Systems</span>
-      <span>
-        <a href="legal/privacy.html">Privacy</a>
-        <a href="legal/terms.html">Terms</a>
-        <a href="colophon.html">Colophon</a>
-      </span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/site.js" defer></script>
 </body>
 </html>

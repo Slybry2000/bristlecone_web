@@ -4,53 +4,143 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#F2EDE3" />
-  <title>Not found — Bristlecone</title>
-  <link rel="icon" type="image/png" href="assets/images/tranbackBristlecone.png" />
-  <link rel="apple-touch-icon" href="assets/images/tranbackBristlecone.png" />
-  <link rel="stylesheet" href="assets/site.css" />
+  <title>Bristlecone — under construction</title>
+  <meta name="description" content="Bristlecone is offline while we rework the site. Back soon." />
+  <meta name="robots" content="noindex, nofollow, noai, noimageai" />
+  <link rel="icon" type="image/png" href="/assets/images/tranbackBristlecone.png" />
+  <link rel="apple-touch-icon" href="/assets/images/tranbackBristlecone.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500&family=Lora:wght@400&family=IBM+Plex+Mono:wght@400&display=swap');
+
+    :root {
+      --ink:        #2B2B2B;
+      --ink-soft:   #4A4540;
+      --amber:      #C8893D;
+      --parchment:  #F2EDE3;
+      --border:     #D9CFB8;
+      --muted:      #6B645A;
+      --display: 'EB Garamond', Garamond, 'Times New Roman', serif;
+      --body:    'Lora', Georgia, serif;
+      --mono:    'IBM Plex Mono', Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.65;
+      font-size: 17px;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 24px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(43,43,43,0.022) 0 1px, transparent 2px),
+        radial-gradient(circle at 73% 41%, rgba(43,43,43,0.018) 0 1px, transparent 2px),
+        radial-gradient(circle at 41% 81%, rgba(200,137,61,0.022) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 12%, rgba(43,43,43,0.020) 0 1px, transparent 2px);
+      background-size: 8mm 8mm, 11mm 11mm, 9mm 9mm, 13mm 13mm;
+      mix-blend-mode: multiply;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      text-align: center;
+    }
+
+    .mark {
+      width: 96px;
+      height: auto;
+      opacity: 0.92;
+      margin: 0 auto 28px;
+      display: block;
+    }
+
+    .colophon-rule {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .colophon-rule .amb { color: var(--amber); }
+    .colophon-rule .line {
+      flex: 0 0 60px;
+      height: 1px;
+      background: var(--border);
+      display: inline-block;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    h1 em { font-style: italic; color: var(--amber); }
+
+    p {
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+    }
+    p.small {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-top: 36px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--border);
+      margin: 32px auto;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="shell row">
-    <a href="index.html" class="brand-lockup" aria-label="Bristlecone — home">
-      <img class="mark" src="assets/images/tranbackBristlecone.png" alt="" />
-      <span class="name">Bristlecone<span class="dot">.</span></span>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="philosophy.html">Philosophy</a>
-      <a href="how-it-works.html">How it works</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="journal.html">Journal</a>
-      <a href="waitlist.html" class="cta">Join the waitlist</a>
-    </nav>
-  </div>
-</header>
-
 <main>
-  <section class="hero no-rule">
-    <div class="shell-narrow" style="text-align:center;">
-      <div class="colophon-rule" style="justify-content:center;"><span class="amb">404</span><span class="line" aria-hidden="true"></span><span>Page not found</span></div>
-      <h1 style="font-size: clamp(48px, 7vw, 96px);">Nothing <em class="amb">grows</em> here.</h1>
-      <p class="deck" style="margin-left:auto;margin-right:auto;">The page you were looking for doesn&rsquo;t exist, or hasn&rsquo;t been planted yet. The roots are still good. Try one of these:</p>
-      <p style="margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="index.html" class="btn btn-primary">Home</a>
-        <a href="philosophy.html" class="btn btn-ghost">Philosophy</a>
-        <a href="journal.html" class="btn btn-ghost">Journal</a>
-      </p>
-    </div>
-  </section>
+  <img class="mark" src="/assets/images/tranbackBristlecone.png" alt="Bristlecone mark" />
+
+  <div class="colophon-rule">
+    <span class="amb">Bristlecone</span>
+    <span class="line" aria-hidden="true"></span>
+    <span>Under construction</span>
+  </div>
+
+  <h1>Reworking the <em>site</em>.</h1>
+
+  <p>Bristlecone is offline while we revise. The work continues; the storefront does not, for now.</p>
+
+  <hr class="divider" />
+
+  <p class="small">Back soon.</p>
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
-    <div class="legal">
-      <span>&copy; 2026 Bristlecone Systems</span>
-      <span><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="colophon.html">Colophon</a></span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/site.js" defer></script>
 </body>
 </html>

@@ -70,14 +70,4 @@
     }
   });
 
-  // Waitlist form (no-op submit — wire in production)
-  const form = document.querySelector('form[data-waitlist]');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const status = form.querySelector('[data-status]');
-      if (status) status.textContent = 'Thank you. We will write to you when there is a seat.';
-      form.querySelector('button[type="submit"]').setAttribute('disabled', 'true');
-    });
-  }
 })();
