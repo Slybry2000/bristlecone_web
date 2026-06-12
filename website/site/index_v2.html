@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F2EDE3" />
+  <title>Bristlecone — the method behind Perseid Echo Creations</title>
+  <meta name="description" content="Bristlecone is the operating system behind Perseid Echo Creations. See it in motion at perseidechocreations.com." />
+  <meta name="robots" content="index, follow, noai, noimageai" />
+  <link rel="icon" type="image/png" href="assets/images/tranbackBristlecone.png" />
+  <link rel="apple-touch-icon" href="assets/images/tranbackBristlecone.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Lora:wght@400&family=IBM+Plex+Mono:wght@400&display=swap');
+
+    :root {
+      --ink:        #2B2B2B;
+      --ink-soft:   #4A4540;
+      --amber:      #C8893D;
+      --parchment:  #F2EDE3;
+      --border:     #D9CFB8;
+      --muted:      #6B645A;
+      --display: 'EB Garamond', Garamond, 'Times New Roman', serif;
+      --body:    'Lora', Georgia, serif;
+      --mono:    'IBM Plex Mono', Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.65;
+      font-size: 17px;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 24px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(43,43,43,0.022) 0 1px, transparent 2px),
+        radial-gradient(circle at 73% 41%, rgba(43,43,43,0.018) 0 1px, transparent 2px),
+        radial-gradient(circle at 41% 81%, rgba(200,137,61,0.022) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 12%, rgba(43,43,43,0.020) 0 1px, transparent 2px);
+      background-size: 8mm 8mm, 11mm 11mm, 9mm 9mm, 13mm 13mm;
+      mix-blend-mode: multiply;
+    }
+
+    .tempbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: #E5D6B0; color: #2B2B2B;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 6px 12px; text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      text-align: center;
+    }
+
+    .mark {
+      width: 96px;
+      height: auto;
+      opacity: 0.92;
+      margin: 0 auto 28px;
+      display: block;
+    }
+
+    .colophon-rule {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .colophon-rule .amb { color: var(--amber); }
+    .colophon-rule .line {
+      flex: 0 0 60px;
+      height: 1px;
+      background: var(--border);
+      display: inline-block;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(38px, 6.4vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    h1 em { font-style: italic; color: var(--amber); }
+
+    p {
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+    }
+    p a {
+      color: var(--ink);
+      border-bottom: 1px solid var(--amber);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    p a:hover { color: var(--amber); }
+
+    p.small {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-top: 36px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--border);
+      margin: 32px auto;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="tempbar">PREVIEW / index_v2 — not the live page</div>
+
+<main>
+  <img class="mark" src="assets/images/tranbackBristlecone.png" alt="Bristlecone mark" />
+
+  <div class="colophon-rule">
+    <span class="amb">Bristlecone</span>
+    <span class="line" aria-hidden="true"></span>
+    <span>The method</span>
+  </div>
+
+  <h1>This domain is <em>winding down</em>.</h1>
+
+  <p>The work lives next door at <a href="https://perseidechocreations.com/">perseidechocreations.com</a> &mdash; one operator, one engine, a small portfolio.</p>
+
+  <hr class="divider" />
+
+  <p class="small">Find the work next door.</p>
+</main>
+
+</body>
+</html>

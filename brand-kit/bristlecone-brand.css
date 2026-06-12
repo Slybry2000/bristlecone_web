@@ -1,0 +1,118 @@
+/* ════════════════════════════════════════════════════════════════════════
+   BRISTLECONE · BRAND KIT  (canonical — copy verbatim into any product)
+   Source of truth: website/brand-book-a4.html (Brand Book v1, 2026-04-28).
+
+   The identity: warm paper-and-ink, letterpress character, slow growth.
+   ONE living accent — Living Amber — used sparingly (the single lit branch).
+   Serif voice (EB Garamond display · Lora body), IBM Plex Mono for data.
+
+   Two registers, same hues:
+     LIGHT  = parchment & ink (marketing, prose)        → :root defaults
+     NIGHT  = warm near-black console (operator tools)   → .bc-night / [data-theme="night"]
+
+   Drop-in: <link rel="stylesheet" href="bristlecone-brand.css">.  Fonts load
+   from Google Fonts with full serif/mono fallbacks, so it degrades on offline
+   machines to Georgia/Consolas and still reads paper-and-ink.
+   ════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ── core palette (exact brand-book hex) ───────────────────────────────── */
+  --bc-ink:        #2B2B2B;   /* Charcoal Ink — linework, body type, substrate */
+  --bc-ink-soft:   #6B645A;   /* Muted — secondary text */
+  --bc-ink-faint:  #8A8275;   /* tertiary labels */
+  --bc-amber:      #C8893D;   /* Living Amber — THE accent. Used sparingly.    */
+  --bc-amber-deep: #A86E2C;   /* amber pressed / hover */
+  --bc-amber-bright:#D9A04A;  /* brightened amber — for dark surfaces          */
+  --bc-forest:     #2F4A3A;   /* Forest — secondary, the "grown / shipped" green */
+  --bc-sky:        #6B8FA8;   /* Sky — quiet secondary, info */
+  --bc-parchment:  #F2EDE3;   /* Parchment — surface, warm, never pure white */
+  --bc-bone:       #FAF6EC;   /* Bone — raised cards / lighter paper */
+  --bc-border:     #D9CFB8;   /* warm hairline */
+  --bc-border-soft:#E6DDC9;
+
+  /* ── type ──────────────────────────────────────────────────────────────── */
+  --bc-display: 'EB Garamond', 'Lora', Georgia, 'Times New Roman', ui-serif, serif;
+  --bc-body:    'Lora', Georgia, 'Times New Roman', ui-serif, serif;
+  --bc-mono:    'IBM Plex Mono', ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+
+  /* ── role aliases (light register) ─────────────────────────────────────── */
+  --bc-bg:        var(--bc-parchment);
+  --bc-surface:   var(--bc-bone);
+  --bc-text:      var(--bc-ink);
+  --bc-text-soft: var(--bc-ink-soft);
+  --bc-line:      var(--bc-border);
+  --bc-accent:    var(--bc-amber);
+
+  /* geometry & motion */
+  --bc-radius: 10px;
+  --bc-shadow: 0 1px 0 rgba(43,43,43,.04), 0 4px 12px rgba(43,43,43,.06);
+  --bc-ease:   cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── NIGHT — warm near-black console (operator tools) ──────────────────────
+   The brand book's dark-mode / console variant: bone ink on warm near-black,
+   brightened amber. Same hues, lit from inside. */
+.bc-night,
+[data-theme="night"] {
+  --bc-night-0:    #14110D;   /* deepest ground / page */
+  --bc-night-1:    #1B1712;   /* base field */
+  --bc-night-2:    #232019;   /* raised lanes / cards */
+  --bc-night-3:    #2A2520;   /* node wells / borders */
+  --bc-ink:        #EFE7D6;   /* bone — primary text on dark */
+  --bc-ink-soft:   #B6AC99;   /* secondary */
+  --bc-ink-faint:  #8A8275;   /* tertiary */
+  --bc-border:     #2A2520;
+  --bc-border-soft:#332C24;
+
+  --bc-bg:        var(--bc-night-0);
+  --bc-surface:   var(--bc-night-2);
+  --bc-text:      var(--bc-ink);
+  --bc-text-soft: var(--bc-ink-soft);
+  --bc-line:      var(--bc-border);
+  --bc-accent:    var(--bc-amber-bright);   /* amber glows brighter on dark */
+  --bc-shadow:    0 1px 0 rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   BRANDBAR — the lockup header. Drop <header class="bc-brandbar">…</header>
+   at the top of any surface that lacks its own identity. On dark surfaces add
+   class "bc-night" (or set [data-theme=night] on a parent).
+   ════════════════════════════════════════════════════════════════════════ */
+.bc-brandbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px;
+  font-family: var(--bc-display);
+  color: var(--bc-text);
+  background: var(--bc-bg);
+  border-bottom: 1px solid var(--bc-line);
+}
+.bc-brandbar .bc-mark { height: 30px; width: auto; display: block; flex: 0 0 auto; }
+.bc-brandbar .bc-wordmark {
+  font-family: var(--bc-display); font-weight: 600; font-size: 20px;
+  letter-spacing: 0.01em; line-height: 1; color: var(--bc-text);
+}
+.bc-brandbar .bc-tag {
+  font-family: var(--bc-mono); font-size: 9.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--bc-accent); margin-left: auto;
+  white-space: nowrap;
+}
+
+/* small standalone mark (favicon-in-page / compact rail) */
+.bc-mark { display: inline-block; }
+
+/* amber accent helpers */
+.bc-accent  { color: var(--bc-accent); }
+.bc-btn {
+  font-family: var(--bc-body); font-weight: 600; font-size: 13px;
+  color: #20170B; background: var(--bc-accent);
+  border: 1px solid transparent; border-radius: 9px;
+  padding: 9px 16px; cursor: pointer;
+  transition: filter 160ms var(--bc-ease), transform 120ms var(--bc-ease);
+}
+.bc-btn:hover  { filter: brightness(1.05); }
+.bc-btn:active { transform: translateY(1px); }
+
+/* warm text selection everywhere the kit is loaded */
+::selection { background: var(--bc-amber); color: #FAF6EC; }
